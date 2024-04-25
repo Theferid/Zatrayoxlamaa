@@ -36,7 +36,7 @@ async def _(event):
         return
 
     if not event.is_reply:
-        await event.reply("Reply to a file to compress it.")
+        await event.reply("Faylı sıxmaq üçün ona cavab verin.")
         return
     if event.is_group:
         if not (await is_register_admin(event.input_chat, event.message.sender_id)):
