@@ -22,7 +22,7 @@ def wiki(update: Update, context: CallbackContext):
         res = wikipedia.summary(search)
     except DisambiguationError as e:
         update.message.reply_text(
-            "Disambiguated pages found! Adjust your query accordingly.\n<i>{}</i>".format(
+            "Anlamsız səhifələr tapıldı! Sorğunuzu müvafiq olaraq tənzimləyin.\n<i>{}</i>".format(
                 e
             ),
             parse_mode=ParseMode.HTML,
@@ -57,6 +57,6 @@ WIKI_HANDLER = DisableAbleCommandHandler("wiki", wiki, run_async=True)
 dispatcher.add_handler(WIKI_HANDLER)
 
 __help__ = """
-» /wiki (text) *:* Searchs about the given text on wikipedia.
+» /wiki (text) *:* Vikipediyada verilən mətnlə bağlı axtarışlar.
 """
 __mod_name__ = "Wɪᴋɪ"
