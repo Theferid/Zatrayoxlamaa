@@ -12,15 +12,15 @@ def handwrite(update: Update, context: CallbackContext):
         text = message.reply_to_message.text
     else:
         text = update.effective_message.text.split(None, 1)[1]
-    m = message.reply_text("Writing the text...")
+    m = message.reply_text("Mətnin yazılması...")
     req = requests.get(f"https://api.sdbots.tk/write?text={text}").url
     message.reply_photo(
         photo=req,
         caption=f"""
-Successfully Written Text 💘
+Uğurla Yazılı Mətn 💘
 
-✨ **Written By :** [{BOT_NAME}](https://t.me/{BOT_USERNAME})
-🥀 **Requested by :** {update.effective_user.first_name}
+✨ **Müəllif :** [{BOT_NAME}](https://t.me/{BOT_USERNAME})
+🥀 **tərəfindən tələb edilmişdir :** {update.effective_user.first_name}
 ❄ **Link :** `{req}`""",
         parse_mode=ParseMode.MARKDOWN,
         reply_markup=InlineKeyboardMarkup(
@@ -35,9 +35,9 @@ Successfully Written Text 💘
 
 
 __help__ = """
- Writes the given text on white page with a pen 🖊
+ Verilmiş mətni qələmlə ağ vərəqə yazır 🖊
 
-❍ /write <text> *:*Writes the given text.
+❍ /write <text> *:*Verilmiş mətni yazır.
 """
 
 WRITE_HANDLER = DisableAbleCommandHandler("write", handwrite, run_async=True)
