@@ -11,24 +11,24 @@ from FallenRobot.utils.admins import can_restrict
 @can_restrict
 async def ban_zombies(_, message: Message):
     del_zom = 0
-    no_z = "`0 deleted accounts found in this chat.`"
+    no_z = "`Bu söhbətdə 0 silinmiş hesab tapıldı.`"
     try:
         clean = message.text.split(None, 1)[1]
     except:
         clean = None
     if clean != "clean":
-        check = await message.reply_text("`Searching for deleted accounts...`")
+        check = await message.reply_text("`Silinmiş hesablar axtarılır...`")
         async for user in pbot.get_chat_members(message.chat.id):
             if user.user.is_deleted:
                 del_zom += 1
                 await sleep(1)
         if del_zom > 0:
             return await check.edit_text(
-                f"`{del_zom}` found in this chat.\nClean them by /zombies clean"
+                f"`{del_zom}` bu söhbətdə tapıldı.\nOnları təmizləyin /zombies təmiz"
             )
         else:
             return await check.edit_text(no_z)
-    cleaner = await message.reply_text("`Cleaning deleted accounts from this chat...`")
+    cleaner = await message.reply_text("`Bu söhbətdən silinmiş hesabların təmizlənməsi...`")
     deleted_u = []
     banned = 0
     failed = 0
@@ -44,17 +44,17 @@ async def ban_zombies(_, message: Message):
                 continue
                 failed += 1
         return await cleaner.edit_text(
-            f"Cleaned `{banned}` zombies from this chat.\nFailed to remove `{failed}` admin zombies."
+            f"Cleaned `{banned}` Bu söhbətdən zombilər.\nSilmək alınmadı `{failed}` admin zombi."
         )
     else:
         return await check.edit_text(no_z)
 
 
 __help__ = """
-*Remove Deleted Accounts*
+*Silinmiş hesabları silin*
 
- ❍ /zombies *:* Starts searching for deleted accounts in the group.
- ❍ /zombies clean *:* Removes the deleted accounts from the group.
+ ❍ /zombies *:* Qrupda silinmiş hesabları axtarmağa başlayır.
+ ❍ /zombies clean *:* Silinmiş hesabları qrupdan silir.
 """
 
 __mod_name__ = "Zᴏᴍʙɪᴇ"
