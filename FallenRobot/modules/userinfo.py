@@ -122,7 +122,7 @@ def get_id(update: Update, context: CallbackContext):
             user2 = message.reply_to_message.forward_from
 
             msg.reply_text(
-                f"<b>ᴛᴇʟᴇɢʀᴀᴍ ɪᴅ:</b>,"
+                f"<b>Telegrem id:</b>,"
                 f"• {html.escape(user2.first_name)} - <code>{user2.id}</code>.\n"
                 f"• {html.escape(user1.first_name)} - <code>{user1.id}</code>.",
                 parse_mode=ParseMode.HTML,
@@ -131,19 +131,19 @@ def get_id(update: Update, context: CallbackContext):
         else:
             user = bot.get_chat(user_id)
             msg.reply_text(
-                f"{html.escape(user.first_name)}'s ɪᴅ ɪs <code>{user.id}</code>.",
+                f"{html.escape(user.first_name)}'S id is <code>{user.id}</code>.",
                 parse_mode=ParseMode.HTML,
             )
 
     else:
         if chat.type == "private":
             msg.reply_text(
-                f"ʏᴏᴜʀ ᴜsᴇʀ ɪᴅ ɪs <code>{chat.id}</code>.", parse_mode=ParseMode.HTML
+                f"İstifadəçi identifikatorunuzs <code>{chat.id}</code>.", parse_mode=ParseMode.HTML
             )
 
         else:
             msg.reply_text(
-                f"ᴛʜɪs ɢʀᴏᴜᴩ's ɪᴅ ɪs <code>{chat.id}</code>.", parse_mode=ParseMode.HTML
+                f"Bu qrupun idi <code>{chat.id}</code>.", parse_mode=ParseMode.HTML
             )
 
 
@@ -162,7 +162,7 @@ async def group_info(event) -> None:
         ch_full = await event.client(GetFullChannelRequest(channel=entity))
     except:
         await event.reply(
-            "Can't for some reason, maybe it is a private one or that I am banned there."
+            "Nədənsə edə bilmirəm, ola bilsin, özəldir və ya orada mənə qadağa qoyulub."
         )
         return
     msg = f"**ɪᴅ**: `{entity.id}`"
@@ -193,7 +193,7 @@ def gifid(update: Update, context: CallbackContext):
             parse_mode=ParseMode.HTML,
         )
     else:
-        update.effective_message.reply_text("Please reply to a gif to get its ID.")
+        update.effective_message.reply_text("ID-sini əldə etmək üçün gif-ə cavab verin.")
 
 
 def info(update: Update, context: CallbackContext):
@@ -223,24 +223,24 @@ def info(update: Update, context: CallbackContext):
     else:
         return
 
-    rep = message.reply_text("<code>ᴀᴩᴩʀᴀɪsɪɴɢ...</code>", parse_mode=ParseMode.HTML)
+    rep = message.reply_text("<code>Qiymətləndirilməsi...</code>", parse_mode=ParseMode.HTML)
 
     text = (
-        f"ㅤ ㅤㅤ      ✦ ᴜsᴇʀ ɪɴғᴏ ✦\n•❅─────✧❅✦❅✧─────❅•\n"
-        f"➻ <b>ᴜsᴇʀ ɪᴅ:</b> <code>{user.id}</code>\n"
-        f"➻ <b>ғɪʀsᴛ ɴᴀᴍᴇ:</b> {html.escape(user.first_name)}"
+        f"ㅤ ㅤㅤ      ✦ İstifadəçi məlumatı ✦\n•❅─────✧❅✦❅✧─────❅•\n"
+        f"➻ <b>İstifadəçi adı:</b> <code>{user.id}</code>\n"
+        f"➻ <b>Birinci ad:</b> {html.escape(user.first_name)}"
     )
 
     if user.last_name:
-        text += f"\n➻ <b>ʟᴀsᴛ ɴᴀᴍᴇ:</b> {html.escape(user.last_name)}"
+        text += f"\n➻ <b>Soyad:</b> {html.escape(user.last_name)}"
 
     if user.username:
-        text += f"\n➻ <b>ᴜsᴇʀɴᴀᴍᴇ:</b> @{html.escape(user.username)}"
+        text += f"\n➻ <b>İstifadəçi adı:</b> @{html.escape(user.username)}"
 
     text += f"\n➻ <b>ʟɪɴᴋ:</b> {mention_html(user.id, 'link')}"
 
     if chat.type != "private" and user_id != bot.id:
-        _stext = "\n➻ <b>ᴩʀᴇsᴇɴᴄᴇ:</b> <code>{}</code>"
+        _stext = "\n➻ <b>Mövcudluq:</b> <code>{}</code>"
 
         status = status = bot.get_chat_member(chat.id, user.id).status
         if status:
@@ -255,17 +255,17 @@ def info(update: Update, context: CallbackContext):
         text += f"\n\n<b>ʜᴇᴀʟᴛʜ:</b> <code>{userhp['earnedhp']}/{userhp['totalhp']}</code>\n[<i>{make_bar(int(userhp['percentage']))} </i>{userhp['percentage']}%]"
 
     if user.id == OWNER_ID:
-        text += "\n\nᴛʜᴇ ᴅɪsᴀsᴛᴇʀ ʟᴇᴠᴇʟ ᴏғ ᴛʜɪs ᴜsᴇʀ ɪs <b>ɢᴏᴅ</b>.\n"
+        text += "\n\nBu istifadəçinin fəlakət səviyyəsi <b>ɢᴏᴅ</b>.\n"
     elif user.id in DEV_USERS:
-        text += "\n\nᴛʜɪs ᴜsᴇʀ ɪs ᴀ ᴍᴇᴍʙᴇʀ ᴏғ <b>ᴀɴᴏɴ ᴀssᴏᴄɪᴀᴛɪᴏɴ</b>.\n"
+        text += "\n\nBu istifadəçi <b>anon assosiasiyasının üzvüdür</b>.\n"
     elif user.id in DRAGONS:
-        text += "\n\nᴛʜᴇ ᴅɪsᴀsᴛᴇʀ ʟᴇᴠᴇʟ ᴏғ ᴛʜɪs ᴜsᴇʀ ɪs <b>ᴅʀᴀɢᴏɴ</b>.\n"
+        text += "\n\nBu istifadəçinin fəlakət səviyyəsi <b>Əjdaha</b>.\n"
     elif user.id in DEMONS:
-        text += "\n\nᴛʜᴇ ᴅɪsᴀsᴛᴇʀ ʟᴇᴠᴇʟ ᴏғ ᴛʜɪs ᴜsᴇʀ ɪs <b>ᴅᴇᴍᴏɴ</b>.\n"
+        text += "\n\nBu istifadəçinin fəlakət səviyyəsi <b>Şeytan</b>.\n"
     elif user.id in TIGERS:
-        text += "\n\nᴛʜᴇ ᴅɪsᴀsᴛᴇʀ ʟᴇᴠᴇʟ ᴏғ ᴛʜɪs ᴜsᴇʀ ɪs <b>ᴛɪɢᴇʀ</b>.\n"
+        text += "\n\nBu istifadəçinin fəlakət səviyyəsi <b>Pələngʀ</b>.\n"
     elif user.id in WOLVES:
-        text += "\n\nᴛʜᴇ ᴅɪsᴀsᴛᴇʀ ʟᴇᴠᴇʟ ᴏғ ᴛʜɪs ᴜsᴇʀ ɪs <b>ᴡᴏʟғ</b>.\n"
+        text += "\n\nBu istifadəçinin fəlakət səviyyəsi <b>canavar</b>.\n"
 
     try:
         user_member = chat.get_member(user.id)
@@ -301,10 +301,10 @@ def info(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                "ʜᴇᴀʟᴛʜ", url="https://t.me/FallenAssociation/7"
+                                "Sağlamlıq", url="https://t.me/ZatraResmi/7"
                             ),
                             InlineKeyboardButton(
-                                "ᴅɪꜱᴀꜱᴛᴇʀ", url="https://t.me/FallenAssociation/8"
+                                "Fəlakət", url="https://t.me/Zatrablog/8"
                             ),
                         ],
                     ]
@@ -348,17 +348,17 @@ def about_me(update: Update, context: CallbackContext):
     elif message.reply_to_message:
         username = message.reply_to_message.from_user.first_name
         update.effective_message.reply_text(
-            f"{username} hasn't set an info message about themselves yet!"
+            f"{username} hələ özləri haqqında məlumat mesajı təyin etməyib!"
         )
     else:
-        update.effective_message.reply_text("There isnt one, use /setme to set one.")
+        update.effective_message.reply_text("Biri yoxdur, birini təyin etmək üçün /setme istifadə edin.")
 
 
 def set_about_me(update: Update, context: CallbackContext):
     message = update.effective_message
     user_id = message.from_user.id
     if user_id in [777000, 1087968824]:
-        message.reply_text("Error! Unauthorized")
+        message.reply_text("Xəta! İcazəsiz")
         return
     bot = context.bot
     if message.reply_to_message:
@@ -372,14 +372,14 @@ def set_about_me(update: Update, context: CallbackContext):
         if len(info[1]) < MAX_MESSAGE_LENGTH // 4:
             sql.set_user_me_info(user_id, info[1])
             if user_id in [777000, 1087968824]:
-                message.reply_text("Authorized...Information updated!")
+                message.reply_text("Səlahiyyətli...Məlumat yeniləndi!")
             elif user_id == bot.id:
-                message.reply_text("I have updated my info with the one you provided!")
+                message.reply_text("Mən məlumatımı təqdim etdiyiniz məlumatla yenilədim!")
             else:
-                message.reply_text("Information updated!")
+                message.reply_text("Məlumat yeniləndi!")
         else:
             message.reply_text(
-                "The info needs to be under {} characters! You have {}.".format(
+                "Məlumatın altında olmalıdır {} personajlar! Sizdə var {}.".format(
                     MAX_MESSAGE_LENGTH // 4, len(info[1])
                 )
             )
@@ -387,7 +387,7 @@ def set_about_me(update: Update, context: CallbackContext):
 
 @sudo_plus
 def stats(update: Update, context: CallbackContext):
-    stats = "<b>🧐 ᴄᴜʀʀᴇɴᴛ sᴛᴀᴛs:</b>\n" + "\n".join([mod.__stats__() for mod in STATS])
+    stats = "<b>🧐 Cari statistika:</b>\n" + "\n".join([mod.__stats__() for mod in STATS])
     result = re.sub(r"(\d+)", r"<code>\1</code>", stats)
     update.effective_message.reply_text(result, parse_mode=ParseMode.HTML)
 
@@ -413,11 +413,11 @@ def about_bio(update: Update, context: CallbackContext):
     elif message.reply_to_message:
         username = user.first_name
         update.effective_message.reply_text(
-            f"{username} hasn't had a message set about themselves yet!\nSet one using /setbio"
+            f"{username} hələ özləri haqqında mesaj göndərməmişdir!\nIstifadə edərək birini təyin edin /setbio"
         )
     else:
         update.effective_message.reply_text(
-            "You haven't had a bio set about yourself yet!"
+            "Hələ özünüzlə bağlı bioqrafiyanız yoxdur!"
         )
 
 
@@ -432,17 +432,17 @@ def set_about_bio(update: Update, context: CallbackContext):
 
         if user_id == message.from_user.id:
             message.reply_text(
-                "Ha, you can't set your own bio! You're at the mercy of others here..."
+                "Ha, öz tərcümeyi-halınızı təyin edə bilməzsiniz! Sən burada başqalarının mərhəmətindəsən..."
             )
             return
 
         if user_id in [777000, 1087968824] and sender_id not in DEV_USERS:
-            message.reply_text("You are not authorised")
+            message.reply_text("Siz səlahiyyətli deyilsiniz")
             return
 
         if user_id == bot.id and sender_id not in DEV_USERS:
             message.reply_text(
-                "Umm... yeah, I only trust Anon Association to set my bio."
+                "Umm... bəli, mən biomüəyyən etmək üçün yalnız Anon Assosiasiyasına etibar edirəm."
             )
             return
 
@@ -455,16 +455,16 @@ def set_about_bio(update: Update, context: CallbackContext):
             if len(bio[1]) < MAX_MESSAGE_LENGTH // 4:
                 sql.set_user_bio(user_id, bio[1])
                 message.reply_text(
-                    "Updated {}'s bio!".format(repl_message.from_user.first_name)
+                    "{}-nin biosu yeniləndi!".format(repl_message.from_user.first_name)
                 )
             else:
                 message.reply_text(
-                    "Bio needs to be under {} characters! You tried to set {}.".format(
+                    "Bio {} simvoldan aşağı olmalıdır! {} təyin etməyə çalışdınız.".format(
                         MAX_MESSAGE_LENGTH // 4, len(bio[1])
                     )
                 )
     else:
-        message.reply_text("Reply to someone to set their bio!")
+        message.reply_text("Biosunu təyin etmək üçün kiməsə cavab verin!")
 
 
 def __user_info__(user_id):
@@ -472,35 +472,35 @@ def __user_info__(user_id):
     me = html.escape(sql.get_user_me_info(user_id) or "")
     result = ""
     if me:
-        result += f"<b>ᴀʙᴏᴜᴛ ᴜsᴇʀ:</b>\n{me}\n"
+        result += f"<b>İstifadəçi haqqında:</b>\n{me}\n"
     if bio:
-        result += f"<b>ᴏᴛʜᴇʀs sᴀʏ ᴛʜᴀᴛ:</b>\n{bio}\n"
+        result += f"<b>Başqaları belə deyir:</b>\n{bio}\n"
     result = result.strip("\n")
     return result
 
 
 __help__ = """
 *ID:*
- ❍ /id*:* get the current group id. If used by replying to a message, gets that user's id.
- ❍ /gifid*:* reply to a gif to me to tell you its file ID.
+ ❍ /id*:* cari qrup identifikatorunu əldə edin. Mesaja cavab verməklə istifadə edilərsə, həmin istifadəçinin id-sini alır.
+ ❍ /gifid*:* Mənə gif-ə cavab verin ki, sizə onun fayl identifikatorunu deyim.
 
-*Self added information:* 
- ❍ /setme <text>*:* will set your info
- ❍ /me*:* will get your or another user's info.
+*Öz-özünə əlavə edilmiş məlumat:* 
+ ❍ /setme <text>*:* məlumatlarınızı təyin edəcək
+ ❍ /me*:* sizin və ya digər istifadəçinin məlumatını alacaq.
 *Examples:* 💡
- ➩ /setme I am a wolf.
- ➩ /me @username(defaults to yours if no user specified)
+ ➩ /setme Mən canavaram.
+ ➩ /me @username(heç bir istifadəçi göstərilməyibsə, defolt olaraq sizin üçündür)
 
-*Information others add on you:* 
- ❍ /bio*:* will get your or another user's bio. This cannot be set by yourself.
- ❍ /setbio <text>*:* while replying, will save another user's bio 
+*Başqalarının sizə əlavə etdiyi məlumatlar:* 
+ ❍ /bio*:* sizin və ya başqa istifadəçinin bio-nu əldə edəcək. Bunu özünüz təyin etmək olmaz.
+ ❍ /setbio <text>*:* cavab verərkən, başqa istifadəçinin bio-nu saxlayacaq
 *Examples:* 💡
- ➩ /bio @username(defaults to yours if not specified).`
- ➩ /setbio This user is a wolf` (reply to the user)
+ ➩ /bio @username(müəyyən edilmədikdə sizin üçün standartdır).`
+ ➩ /setbio Bu istifadəçi canavardır` (istifadəçiyə cavab)
 
-*Overall Information about you:*
- ❍ /info*:* get information about a user. 
- ❍ /myinfo*:* Shows info about the user who sent this command.
+*Sizin haqqınızda ümumi məlumat:*
+ ❍ /info*:* istifadəçi haqqında məlumat əldə edin. 
+ ❍ /myinfo*:* Bu əmri göndərən istifadəçi haqqında məlumatı göstərir.
 """
 
 SET_BIO_HANDLER = DisableAbleCommandHandler("setbio", set_about_bio, run_async=True)
