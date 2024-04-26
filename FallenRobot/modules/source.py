@@ -9,13 +9,13 @@ from telethon import __version__ as s
 from FallenRobot import BOT_NAME, BOT_USERNAME, OWNER_ID, START_IMG, pbot
 
 
-@pbot.on_message(filters.command(["repo", "source"]))
+@pbot.on_message(filters.command(["repo", "ᴍəɴʙə"]))
 async def repo(_, message: Message):
     await message.reply_photo(
         photo=START_IMG,
-        caption=f"""**Salam {message.from_user.mention},
+        caption=f"""**sᴀʟᴀᴍ {message.from_user.mention},
 
-Mən [{BOT_NAME}](https://t.me/{BOT_USERNAME})**
+ᴍəɴ [{BOT_NAME}](https://t.me/{BOT_USERNAME})**
 
 **» Məɴɪᴍ Qᴜʀᴜᴄᴜᴍ :** 乙 卂 ㄒ 尺 卂
 **» ᴘʏᴛʜᴏɴ ᴠᴇʀsɪʏᴀsı :** `{y()}`
