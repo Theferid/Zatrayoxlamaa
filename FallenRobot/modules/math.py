@@ -99,27 +99,27 @@ def log(update: Update, context: CallbackContext):
 
 
 __help__ = """
-*MATHS*
-Solves complex math problems using https://newton.now.sh
-❍ /math*:* Math `/math 2^2+2(2)`
-❍ /factor*:* Factor `/factor x^2 + 2x`
-❍ /derive*:* Derive `/derive x^2+2x`
-❍ /integrate*:* Integrate `/integrate x^2+2x`
-❍ /zeroes*:* Find 0's `/zeroes x^2+2x`
-❍ /tangent*:* Find Tangent `/tangent 2lx^3`
-❍ /area*:* Area Under Curve `/area 2:4lx^3`
-❍ /cos*:* Cosine `/cos pi`
-❍ /sin*:* Sine `/sin 0`
-❍ /tan*:* Tangent `/tan 0`
-❍ /arccos*:* Inverse Cosine `/arccos 1`
-❍ /arcsin*:* Inverse Sine `/arcsin 0`
-❍ /arctan*:* Inverse Tangent `/arctan 0`
-❍ /abs*:* Absolute Value `/abs -1`
-❍ /log*:* Logarithm `/log 2l8`
+*Riyaziyyat*
+istifadə edərək mürəkkəb riyazi məsələləri həll edir https://newton.now.sh
+❍ /math*:* Riyaziyyat`/math 2^2+2(2)`
+❍ /factor*:* Amil `/factor x^2 + 2x`
+❍ /derive*:* Alın `/derive x^2+2x`
+❍ /integrate*:* İnteqrasiya edin `/integrate x^2+2x`
+❍ /zeroes*:* 0-ları tapın`/zeroes x^2+2x`
+❍ /tangent*:* Tangens tapın`/tangent 2lx^3`
+❍ /area*:* Əyri altındakı sahə`/area 2:4lx^3`
+❍ /cos*:* Kosinus`/cos pi`
+❍ /sin*:* Onun`/sin 0`
+❍ /tan*:* Tangens `/tan 0`
+❍ /arccos*:* Tərs kosinus`/arccos 1`
+❍ /arcsin*:* Tərs sinus`/arcsin 0`
+❍ /arctan*:* Tərs tangens`/arctan 0`
+❍ /abs*:* Mütləq dəyər`/abs -1`
+❍ /log*:* Loqarifm`/log 2l8`
 
-_Keep in mind_: To find the tangent line of a function at a certain x value, send the request as c|f(x) where c is the given x value and f(x) is the function expression, the separator is a vertical bar '|'. See the table above for an example request.
-To find the area under a function, send the request as c:d|f(x) where c is the starting x value, d is the ending x value, and f(x) is the function under which you want the curve between the two x values.
-To compute fractions, enter expressions as numerator(over)denominator. For example, to process 2/4 you must send in your expression as 2(over)4. The result expression will be in standard math notation (1/2, 3/4).
+_Yadında saxla_: Müəyyən x dəyərində funksiyanın tangens xəttini tapmaq üçün sorğunu c|f(x) kimi göndərin, burada c verilmiş x dəyəridir və f(x) funksiya ifadəsidir, ayırıcı şaquli sətirdir '|' . Nümunə sorğu üçün yuxarıdakı cədvələ baxın.
+Funksiya altındakı sahəni tapmaq üçün sorğunu c:d|f(x) kimi göndərin, burada c başlanğıc x dəyəri, d son x dəyəri və f(x) arasında əyrinin olmasını istədiyiniz funksiyadır. iki x dəyəri.
+Kəsrləri hesablamaq üçün ifadələri say(üst) məxrəc kimi daxil edin. Məsələn, 2/4-ü emal etmək üçün ifadənizi 2(over)4 kimi göndərməlisiniz. Nəticə ifadəsi standart riyaziyyat qeydində olacaq (1/2, 3/4).
 """
 
 __mod_name__ = "Mᴀᴛʜs"
