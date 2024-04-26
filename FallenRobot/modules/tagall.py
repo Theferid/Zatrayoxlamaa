@@ -16,7 +16,7 @@ async def mentionall(event):
     chat_id = event.chat_id
     if event.is_private:
         return await event.respond(
-            "__This command can be use in groups and channels!__"
+            "__Bu əmr qruplarda və kanallarda istifadə edilə bilər!__"
         )
 
     is_admin = False
@@ -30,10 +30,10 @@ async def mentionall(event):
         ):
             is_admin = True
     if not is_admin:
-        return await event.respond("__Only admins can mention all!__")
+        return await event.respond("__Yalnız adminlər hamısını qeyd edə bilər!__")
 
     if event.pattern_match.group(1) and event.is_reply:
-        return await event.respond("__Give me one argument!__")
+        return await event.respond("__Mənə bir arqument verin!__")
     elif event.pattern_match.group(1):
         mode = "text_on_cmd"
         msg = event.pattern_match.group(1)
@@ -42,11 +42,11 @@ async def mentionall(event):
         msg = await event.get_reply_message()
         if msg == None:
             return await event.respond(
-                "__I can't mention members for older messages! (messages which are sent before I'm added to group)__"
+                "__Mən köhnə mesajlar üçün üzvləri qeyd edə bilmərəm! (qrupa əlavə edilməzdən əvvəl göndərilən mesajlar)__"
             )
     else:
         return await event.respond(
-            "__Reply to a message or give me some text to mention others!__"
+            "__Mesaja cavab verin və ya başqalarını qeyd etmək üçün mənə mətn göndərin!__"
         )
 
     spam_chats.append(chat_id)
@@ -75,7 +75,7 @@ async def mentionall(event):
 @client.on(events.NewMessage(pattern="^/cancel$"))
 async def cancel_spam(event):
     if not event.chat_id in spam_chats:
-        return await event.respond("__There is no proccess on going...__")
+        return await event.respond("__Heç bir proses getmir...__")
     is_admin = False
     try:
         partici_ = await client(GetParticipantRequest(event.chat_id, event.sender_id))
@@ -87,19 +87,19 @@ async def cancel_spam(event):
         ):
             is_admin = True
     if not is_admin:
-        return await event.respond("__Only admins can execute this command!__")
+        return await event.respond("__Bu əmri yalnız adminlər yerinə yetirə bilər!__")
 
     else:
         try:
             spam_chats.remove(event.chat_id)
         except:
             pass
-        return await event.respond("__Stopped mention.__")
+        return await event.respond("__Qeyd etməyi dayandırdı.__")
 
 
 __mod_name__ = "Tᴀɢ Aʟʟ"
 __help__ = """
-*Only for admins*
+*Yalnız adminlər üçün*
 
-❍ /tagall or @all '(reply to message or add another message) To mention all members in your group, without exception.'
+❍ /tagall or @all '(mesaja cavab verin və ya başqa mesaj əlavə edin) Qrupunuzdakı bütün üzvləri istisnasız qeyd etmək.'
 """
