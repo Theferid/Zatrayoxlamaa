@@ -13,25 +13,25 @@ async def handler(event):
         return
 
     if not event.reply_to_msg_id:
-        await event.reply("Provide Some Text To Draw!")
+        await event.reply("Çəkmək üçün Bəzi Mətn Təmin Edin!")
 
         return
 
     reply_message = await event.get_reply_message()
 
     if not reply_message.media:
-        await event.reply("```Reply to a image/sticker.```")
+        await event.reply("```Şəkilə cavab verin/sticker.```")
 
         return
 
     file = await bot.download_media(reply_message)
 
-    msg = await event.reply("```Memifying this image! ✊🏻 ```")
+    msg = await event.reply("```Bu şəklin memifikasiyası! ✊🏻 ```")
 
     text = str(event.pattern_match.group(1)).strip()
 
     if len(text) < 1:
-        return await msg.reply("You might want to try `/mmf text`")
+        return await msg.reply("` /mmf mətnini sınamaq istəyə bilərsiniz`")
 
     meme = await drawText(file, text)
 
