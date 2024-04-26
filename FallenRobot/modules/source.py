@@ -13,22 +13,22 @@ from FallenRobot import BOT_NAME, BOT_USERNAME, OWNER_ID, START_IMG, pbot
 async def repo(_, message: Message):
     await message.reply_photo(
         photo=START_IMG,
-        caption=f"""**ʜᴇʏ {message.from_user.mention},
+        caption=f"""**Salam {message.from_user.mention},
 
 Mən [{BOT_NAME}](https://t.me/{BOT_USERNAME})**
 
-**» ᴍʏ ᴅᴇᴠᴇʟᴏᴘᴇʀ :** 乙 卂 ㄒ 尺 卂
-**» ᴩʏᴛʜᴏɴ ᴠᴇʀsɪᴏɴ :** `{y()}`
-**» ʟɪʙʀᴀʀʏ ᴠᴇʀsɪᴏɴ :** `{o}` 
-**» ᴛᴇʟᴇᴛʜᴏɴ ᴠᴇʀsɪᴏɴ :** `{s}` 
-**» ᴘʏʀᴏɢʀᴀᴍ ᴠᴇʀsɪᴏɴ :** `{z}`
+**» Məɴɪᴍ Qᴜʀᴜᴄᴜᴍ :** 乙 卂 ㄒ 尺 卂
+**» ᴘʏᴛʜᴏɴ ᴠᴇʀsɪʏᴀsı :** `{y()}`
+**» ᴠᴇʀsɪʏᴀ ᴋɪᴛᴀʙxᴀɴᴀsıᴏɴ :** `{o}` 
+**» Tᴇʟᴇᴍᴀʀᴀғᴏɴ ᴠᴇʀsɪʏᴀsıɴ :** `{s}` 
+**» Pɪʀᴏǫʀᴀᴍ ᴠᴇʀsɪʏᴀsıɴ :** `{z}`
 """,
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("ᴅᴇᴠᴇʟᴏᴘᴇʀ", user_id=OWNER_ID),
+                    InlineKeyboardButton(" Qᴜʀᴜᴄᴜᴍ", user_id=OWNER_ID),
                     InlineKeyboardButton(
-                        "sᴏᴜʀᴄᴇ",
+                        "ᴍəɴʙə",
                         url="https://github.com/Qadirnesirov/ZatraNezarett",
                     ),
                 ]
