@@ -71,7 +71,7 @@ def sed(update: Update, context: CallbackContext):
         repl, repl_with, flags = sed_result
         if not repl:
             update.effective_message.reply_to_message.reply_text(
-                "You're trying to replace... " "nothing with something?"
+                "Siz əvəz etməyə çalışırsınız... " "bir şeylə heç nə?"
             )
             return
 
@@ -82,14 +82,14 @@ def sed(update: Update, context: CallbackContext):
                 return
             if check and check.group(0).lower() == to_fix.lower():
                 update.effective_message.reply_to_message.reply_text(
-                    "Hey everyone, {} is trying to make "
-                    "me say stuff I don't wanna "
-                    "say!".format(update.effective_user.first_name)
+                    "Hamıya salam, {} etməyə çalışır "
+                    "istəmədiyim şeyləri deyirəm "
+                    "deyin!".format(update.effective_user.first_name)
                 )
                 return
             if infinite_loop_check(repl):
                 update.effective_message.reply_text(
-                    "I'm afraid I can't run that regex."
+                    "Qorxuram ki, bu regexi işlədə bilməyəcəm."
                 )
                 return
             if "i" in flags and "g" in flags:
@@ -109,14 +109,14 @@ def sed(update: Update, context: CallbackContext):
             return
         except sre_constants.error:
             LOGGER.warning(update.effective_message.text)
-            LOGGER.exception("SRE constant error")
-            update.effective_message.reply_text("Do you even sed? Apparently not.")
+            LOGGER.exception("SRE daimi xətası")
+            update.effective_message.reply_text("Siz hətta sed edirsiniz? Görünür, yox.")
             return
 
         # empty string errors -_-
         if len(text) >= telegram.MAX_MESSAGE_LENGTH:
             update.effective_message.reply_text(
-                "The result of the sed command was too long for \
+                "sed əmrinin nəticəsi çox uzun idi \
                                                  telegram!"
             )
         elif text:
