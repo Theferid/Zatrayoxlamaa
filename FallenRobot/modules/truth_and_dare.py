@@ -26,7 +26,7 @@ dispatcher.add_handler(DARE_HANDLER)
 __help__ = """
 *Həqiqət və Cəsarət*
 
- ❍ /truth *:* Təsadüfi həqiqət sətrini göndərir.
+ ❍ /truth *:* Təsadüfi Həqiqət sətrini göndərir.
  ❍ /dare *:* Təsadüfi cəsarətli simli göndərir.
 """
 
