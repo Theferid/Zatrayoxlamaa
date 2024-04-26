@@ -15,12 +15,12 @@ def convert(speed):
 def speedtestxyz(update: Update, context: CallbackContext):
     buttons = [
         [
-            InlineKeyboardButton("ɪᴍᴀɢᴇ", callback_data="speedtest_image"),
-            InlineKeyboardButton("ᴛᴇxᴛ", callback_data="speedtest_text"),
+            InlineKeyboardButton("şəkil", callback_data="speedtest_image"),
+            InlineKeyboardButton("Mətn", callback_data="speedtest_text"),
         ]
     ]
     update.effective_message.reply_text(
-        "sᴩᴇᴇᴅᴛᴇsᴛ ᴍᴏᴅᴇ", reply_markup=InlineKeyboardMarkup(buttons)
+        "Sürət testi rejimi", reply_markup=InlineKeyboardMarkup(buttons)
     )
 
 
@@ -28,12 +28,12 @@ def speedtestxyz_callback(update: Update, context: CallbackContext):
     query = update.callback_query
 
     if query.from_user.id in DEV_USERS:
-        msg = update.effective_message.edit_text("ʀᴜɴɴɪɴɢ ᴀ sᴩᴇᴇᴅᴛᴇsᴛ...")
+        msg = update.effective_message.edit_text("Sürət testinin həyata keçirilməsi...")
         speed = speedtest.Speedtest()
         speed.get_best_server()
         speed.download()
         speed.upload()
-        replymsg = "sᴩᴇᴇᴅᴛᴇsᴛ ʀᴇsᴜʟᴛ"
+        replymsg = "Speedtest nəticəsi"
 
         if query.data == "speedtest_image":
             speedtest_image = speed.results.share()
@@ -61,7 +61,7 @@ dispatcher.add_handler(SPEED_TEST_HANDLER)
 dispatcher.add_handler(SPEED_TEST_CALLBACKHANDLER)
 
 __help__ = """
-» /speedtest *:* Runs a speedtest and check the server speed.
+» /speedtest *:* Sürət testini həyata keçirir və server sürətini yoxlayın.
 """
 
 __mod_name__ = "SᴘᴇᴇᴅTᴇsᴛ"
