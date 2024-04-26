@@ -24,10 +24,10 @@ dispatcher.add_handler(DARE_HANDLER)
 
 
 __help__ = """
-*Truth & Dare*
+*Həqiqət və Cəsarət*
 
- ❍ /truth *:* Sends a random truth string.
- ❍ /dare *:* Sends a random dare string.
+ ❍ /truth *:* Təsadüfi həqiqət sətrini göndərir.
+ ❍ /dare *:* Təsadüfi cəsarətli simli göndərir.
 """
 
 __mod_name__ = "Tʀᴜᴛʜ-Dᴀʀᴇ"
