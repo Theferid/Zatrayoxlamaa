@@ -14,7 +14,7 @@ gbanned = db.gban
 
 
 def register(**args):
-    """Registers a new message."""
+    """Yeni mesajı qeyd edir."""
     pattern = args.get("pattern", None)
 
     r_pattern = r"^[/!.]"
@@ -32,7 +32,7 @@ def register(**args):
 
 
 def chataction(**args):
-    """Registers chat actions."""
+    """Söhbət hərəkətlərini qeyd edir."""
 
     def decorator(func):
         telethn.add_event_handler(func, events.ChatAction(**args))
@@ -42,7 +42,7 @@ def chataction(**args):
 
 
 def userupdate(**args):
-    """Registers user updates."""
+    """İstifadəçi yeniləmələrini qeyd edir."""
 
     def decorator(func):
         telethn.add_event_handler(func, events.UserUpdate(**args))
@@ -52,7 +52,7 @@ def userupdate(**args):
 
 
 def inlinequery(**args):
-    """Registers inline query."""
+    """Daxil olan sorğunu qeyd edir."""
     pattern = args.get("pattern", None)
 
     if pattern is not None and not pattern.startswith("(?i)"):
@@ -66,7 +66,7 @@ def inlinequery(**args):
 
 
 def callbackquery(**args):
-    """Registers inline query."""
+    """Daxil olan sorğunu qeyd edir."""
 
     def decorator(func):
         telethn.add_event_handler(func, events.CallbackQuery(**args))
@@ -113,13 +113,13 @@ def bot(**args):
             if check.is_group or check.is_private:
                 pass
             else:
-                print("i don't work in channels")
+                print("mən kanallarda işləmirəm")
                 return
             if check.is_group:
                 if check.chat.megagroup:
                     pass
                 else:
-                    print("i don't work in small chats")
+                    print("Mən kiçik söhbətlərdə işləmirəm")
                     return
 
             users = gbanned.find({})
