@@ -7,7 +7,7 @@ from telegraph import Telegraph, exceptions, upload_file
 from FallenRobot import telethn as tbot
 from FallenRobot.events import register
 
-Anonymous = "Fallen"
+Anonymous = "Zatra"
 
 TMP_DOWNLOAD_DIRECTORY = "./"
 telegraph = Telegraph()
@@ -31,7 +31,7 @@ async def _(event):
             end = datetime.now()
             ms = (end - start).seconds
             h = await event.reply(
-                "Downloaded to {} in {} seconds.".format(downloaded_file_name, ms)
+                "{} saniyəyə {} faylına endirildi.".format(downloaded_file_name, ms)
             )
             if downloaded_file_name.endswith((".webp")):
                 resize_image(downloaded_file_name)
@@ -46,7 +46,7 @@ async def _(event):
                 (end - start).seconds
                 os.remove(downloaded_file_name)
                 await h.edit(
-                    "Uploaded to https://telegra.ph{})".format(media_urls[0]),
+                    "-a yüklənib https://telegra.ph{})".format(media_urls[0]),
                     link_preview=True,
                 )
         elif input_str == "t":
@@ -73,13 +73,13 @@ async def _(event):
             end = datetime.now()
             ms = (end - start).seconds
             await event.reply(
-                "Pasted to https://telegra.ph/{} in {} seconds.".format(
+                "Yapışdırıldı https://telegra.ph/{} in {} saniyə.".format(
                     response["path"], ms
                 ),
                 link_preview=True,
             )
     else:
-        await event.reply("Reply to a message to get a permanent telegra.ph link.")
+        await event.reply("Daimi telegra.ph linkini əldə etmək üçün mesaja cavab verin.")
 
 
 def resize_image(image):
@@ -88,9 +88,9 @@ def resize_image(image):
 
 
 __help__ = """
- ❍ /tgm :Get Telegraph Link Of Replied Media
- ❍ /tgt :Get Telegraph Link of Replied Text
- ❍ /tgt [custom name]: Get telegraph link of replied text with custom name.
+ ❍ /tgm :Cavab Verilən Medianın Teleqraf Linkini əldə edin
+ ❍ /tgt :Cavab verilmiş mətnin teleqraf linkini əldə edin
+ ❍ /tgt [xüsusi ad]: Xüsusi adla cavablandırılan mətnin teleqraf linkini əldə edin.
 """
 
 __mod_name__ = "T-Gʀᴀᴘʜ"
