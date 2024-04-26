@@ -16,14 +16,14 @@ async def wall(_, message: Message):
     except IndexError:
         text = None
     if not text:
-        return await message.reply_text("`Please give some query to search.`")
-    m = await message.reply_text("`Searching for wallpapers...`")
+        return await message.reply_text("`Zəhmət olmasa axtarış üçün bir neçə sorğu verin.`")
+    m = await message.reply_text("`Divar kağızları axtarılır...`")
     try:
         url = requests.get(f"https://api.safone.me/wall?query={text}").json()["results"]
         ran = random.randint(0, 3)
         await message.reply_photo(
             photo=url[ran]["imageUrl"],
-            caption=f"🥀 **ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ :** {message.from_user.mention}",
+            caption=f"🥀 **tərəfindən tələb edilmişdir :** {message.from_user.mention}",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [InlineKeyboardButton("ʟɪɴᴋ", url=url[ran]["imageUrl"])],
@@ -33,5 +33,5 @@ async def wall(_, message: Message):
         await m.delete()
     except Exception as e:
         await m.edit_text(
-            f"`ᴡᴀʟʟᴘᴀᴘᴇʀ ɴᴏᴛ ғᴏᴜɴᴅ ғᴏʀ : `{text}`",
+            f"`Divar kağızı tapılmadı : `{text}`",
         )
