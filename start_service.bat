@@ -25,7 +25,7 @@ if '%errorlevel%' NEQ '0' (
     pushd "%CD%"
     CD /D "%~dp0"
 :--------------------------------------
-:: your commands begin from this point.
-:: stops the service and then starts it 
-net stop FallenRobot
-net start FallenRobot
+:: əmrləriniz bu nöqtədən başlayır.
+:: xidməti dayandırır və sonra işə salır
+xalis stop Zatrabot
+xalis başlanğıc Zatrabot
