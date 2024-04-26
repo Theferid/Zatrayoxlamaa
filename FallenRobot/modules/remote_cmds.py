@@ -13,17 +13,17 @@ from FallenRobot.modules.helper_funcs.extraction import extract_user_and_text
 from FallenRobot.modules.helper_funcs.filters import CustomFilters
 
 RBAN_ERRORS = {
-    "User is an administrator of the chat",
-    "Chat not found",
-    "Not enough rights to restrict/unrestrict chat member",
-    "User_not_participant",
+    "İstifadəçi söhbətin idarəçisidir",
+    "Çat tapılmadı",
+    "Çat üzvünü məhdudlaşdırmaq/məhdudiyyəti aradan qaldırmaq üçün kifayət qədər hüquqlar yoxdur",
+    "İstifadəçi_iştirakçı_deyil",
     "Peer_id_invalid",
-    "Group chat was deactivated",
-    "Need to be inviter of a user to punch it from a basic group",
-    "Chat_admin_required",
-    "Only the creator of a basic group can punch group administrators",
-    "Channel_private",
-    "Not in the chat",
+    "Qrup söhbəti deaktiv edildi",
+    "Onu əsas qrupdan vurmaq üçün istifadəçinin dəvətçisi olmaq lazımdır",
+    "Chat_admin_tələb_olunur",
+    "Yalnız əsas qrupun yaradıcısı qrup administratorlarını yumruqlaya bilər",
+    "Kanal_özəl",
+    "Çatda yox",
 }
 
 RUNBAN_ERRORS = {
